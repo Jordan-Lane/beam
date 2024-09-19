@@ -1,5 +1,5 @@
 import { BoxGeometry, Color, Mesh, MeshBasicMaterial } from "three";
-import { Batchable } from "../types";
+import { Batchable } from "../../types";
 
 export const BATCH_CUBE_GEOMETRY = new BoxGeometry(1, 1, 1);
 export const BATCH_CUBE_MATERIAL = new MeshBasicMaterial({

@@ -1,12 +1,11 @@
 import "./style.css";
 import { Viewer } from "../src";
-import { Color, Euler, MeshBasicMaterial, Vector3 } from "three";
+import { Color, Euler, Vector3 } from "three";
 import Cube from "./Cube";
 import BoxVolume from "../src/objects/BoxVolume";
-import BatchCube from "../src/objects/BatchCube";
+import BatchCube from "../src/objects/BatchBoxVolume/BatchCube";
 import BatchFrame from "../src/objects/CubeFrame";
-import StaticCube from "./StaticCube";
-import BatchBoxVolume from "../src/objects/BatchBoxVolume";
+import BatchBoxVolume from "../src/objects/BatchBoxVolume/BatchBoxVolume";
 
 const element = document.querySelector<HTMLElement>("#app")!;
 
@@ -25,22 +24,7 @@ pco.translateZ(-7);
 
 viewer.scene.background = new Color(0xdddddd);
 
-/*
-// Interactive Cube
-const cube = new Cube();
-cube.setPointerDownCallback((inserting: boolean) => {
-  if (inserting) {
-    viewer.stopObjectInsertion(true);
-  } else {
-    viewer.insertObject(cube);
-  }
-});
-
-viewer.add(cube, true);
-*/
-
-// Batch Box Volumes
-/*
+// BatchBoxVolumes
 for (let i = 0; i < 5000; i++) {
   const position = new Vector3(
     Math.random() * 40 - 20,
@@ -68,11 +52,11 @@ for (let i = 0; i < 5000; i++) {
     name,
   });
 
-  viewer.addBoxVolume(boxVolume);
+  viewer.addBatchBoxVolume(boxVolume);
 }
-*/
 
 /*
+// Regular BoxVolumes
 for (let i = 0; i < 5000; i++) {
   const position = new Vector3(
     Math.random() * 40 - 20,
@@ -104,6 +88,7 @@ for (let i = 0; i < 5000; i++) {
 }
 */
 
+/*
 // Splat
 await viewer.addSplat(
   "/garden.ksplat",
@@ -121,6 +106,7 @@ await viewer.addSplat(
     ),
   }
 );
+*/
 
 console.log(viewer.scene);
 

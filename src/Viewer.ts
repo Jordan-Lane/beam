@@ -12,7 +12,7 @@ import InputManager from "./controllers/InputManager";
 import InsertionController from "./controllers/InsertionController";
 import { InsertableObject3D } from "./types";
 import BatchBoxVolumeController from "./controllers/BoxVolumeController";
-import BatchBoxVolume from "./objects/BatchBoxVolume";
+import BatchBoxVolume from "./objects/BatchBoxVolume/BatchBoxVolume";
 import AnnotationController from "./controllers/AnnotationController";
 import SplatsController from "./controllers/SplatsController";
 import BoxVolume from "./objects/BoxVolume";

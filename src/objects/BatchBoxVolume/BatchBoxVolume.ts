@@ -1,8 +1,7 @@
 import { Box3, Color, Euler, Vector3, Vector3Like } from "three";
 import BatchCube from "./BatchCube";
-import CubeFrame from "./CubeFrame";
-import ObjectAnnotation from "./ObjectAnnotation";
-import { LineMaterial } from "three-stdlib";
+import ObjectAnnotation from "../ObjectAnnotation";
+import BatchFrame from "./BatchFrame";
 
 export type BoxVolumeOptions = {
   name?: string;
@@ -16,7 +15,7 @@ class BatchBoxVolume {
   name: string;
 
   cube: BatchCube;
-  frame: CubeFrame;
+  frame: BatchFrame;
   annotation: ObjectAnnotation;
 
   constructor({ name, color, position, rotation, scale }: BoxVolumeOptions) {
@@ -24,19 +23,18 @@ class BatchBoxVolume {
 
     this.name = name ?? "New Object";
 
-    this.frame = new CubeFrame(startingColor);
+    this.frame = new BatchFrame(startingColor);
     this.cube = new BatchCube(startingColor);
 
     this.annotation = new ObjectAnnotation(this.name, startingColor);
-    this.annotation.position.copy(new Vector3(0, 0, 0.6));
 
     this.setGeometry({ position, rotation, scale });
   }
 
   setColor(color: Color) {
-    (this.frame.material as LineMaterial).color = color;
-    this.annotation.setColor(color);
+    this.frame.color = color;
     this.cube.color = color;
+    this.annotation.setColor(color);
   }
 
   setGeometry(geometry: {
